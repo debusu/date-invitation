@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffd6e4">
+  <title>A Little Invitation 💗</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=9">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💗</text></svg>">
+</head>
+<body>
+  <div class="bg-hearts" id="bgHearts" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <button class="back-btn" id="backBtn" type="button" aria-label="Go back" hidden>‹ back</button>
+    <ol class="progress" id="progress" aria-label="Progress"></ol>
+  </header>
+
+  <main id="app">
+
+    <!-- ============ PAGE 1 · GREETING ============ -->
+    <section class="page" data-page="1" aria-labelledby="p1title">
+      <div class="card hero-card">
+        <div class="ribbon-top" aria-hidden="true"></div>
+        <svg class="hero-illus" viewBox="0 0 220 180" aria-hidden="true">
+          <g class="sparkle s1"><path d="M30 40 l4 10 l10 4 l-10 4 l-4 10 l-4-10 l-10-4 l10-4z" fill="#ffc2d6"/></g>
+          <g class="sparkle s2"><path d="M190 30 l3 8 l8 3 l-8 3 l-3 8 l-3-8 l-8-3 l8-3z" fill="#ff9fbf"/></g>
+          <g class="sparkle s3"><path d="M185 140 l3 7 l7 3 l-7 3 l-3 7 l-3-7 l-7-3 l7-3z" fill="#ffc2d6"/></g>
+          <g class="big-heart">
+            <path d="M110 160 C 40 115, 25 70, 55 45 C 80 25, 105 40, 110 58 C 115 40, 140 25, 165 45 C 195 70, 180 115, 110 160 Z" fill="url(#hg)"/>
+            <path d="M70 60 C 78 50, 92 50, 98 58" stroke="#fff" stroke-width="6" stroke-linecap="round" fill="none" opacity=".7"/>
+          </g>
+          <g class="bow">
+            <path d="M110 40 C 90 20, 70 28, 80 46 C 88 58, 104 48, 110 40 Z" fill="#ff7aa6"/>
+            <path d="M110 40 C 130 20, 150 28, 140 46 C 132 58, 116 48, 110 40 Z" fill="#ff7aa6"/>
+            <circle cx="110" cy="41" r="7" fill="#e85a8a"/>
+          </g>
+          <defs>
+            <linearGradient id="hg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ffb3cb"/><stop offset="1" stop-color="#ff7aa6"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <p class="eyebrow">a little something, just for you</p>
+        <h1 class="script" id="p1title">Hi, <span data-name></span>! 🌸</h1>
+        <p class="lead">I made this tiny corner of the internet just for you. I've been so excited (and a little nervous 🙈) to show it to you!</p>
+        <p class="muted">Take your time, tap through, and enjoy every page. 💕</p>
+        <button class="btn btn-primary btn-big" type="button" data-go="2">Let's Begin! <span aria-hidden="true">💗</span></button>
+      </div>
+    </section>
+
+    <!-- ============ PAGE 2 · ANNOUNCEMENT ============ -->
+    <section class="page" data-page="2" aria-labelledby="p2title">
+      <div class="card">
+        <div class="envelope-wrap" id="envelope" aria-hidden="true">
+          <div class="envelope">
+            <div class="env-back"></div>
+            <div class="letter">
+              <span class="letter-line"></span><span class="letter-line short"></span>
+              <span class="letter-heart">💌</span>
+            </div>
+            <div class="env-front"></div>
+            <div class="env-flap"></div>
+            <div class="env-seal">♥</div>
+          </div>
+        </div>
+        <h2 class="announce" id="p2title">
+          <span class="script big-line">We are going on a date!</span>
+          <span>And I will personally make you an invitation.</span>
+          <span class="accent">So, are you ready? 💗</span>
+        </h2>
+        <div class="deco-row" aria-hidden="true">🌷 ✨ 🎀 ✨ 🌷</div>
+        <button class="btn btn-primary btn-big" type="button" data-go="3">Okay!</button>
+      </div>
+    </section>
+
+    <!-- ============ PAGE 3 · CALENDAR ============ -->
+    <section class="page" data-page="3" aria-labelledby="p3title">
+      <div class="card wide">
+        <p class="eyebrow">step one</p>
+        <h2 class="script" id="p3title">When shall we go? 🗓️</h2>
+        <p class="muted center">I picked a day for us… what do you think?</p>
+        <div class="cal-layout">
+          <div class="calendar" id="calendar" aria-live="polite"></div>
+          <div class="cal-options" id="calOptions">
+            <div class="picked-date" id="pickedDate"></div>
+
+            <fieldset class="choice-group" id="agreeGroup">
+              <legend>Does this date work for you?</legend>
+              <label class="choice"><input type="radio" name="agree" value="agree"><span>Agree ❤️</span></label>
+              <label class="choice"><input type="radio" name="agree" value="disagree"><span>Disagree 💗</span></label>
+            </fieldset>
+
+            <fieldset class="choice-group" id="askGroup" hidden>
+              <legend id="askText">Is this good?</legend>
+              <label class="choice"><input type="radio" name="ask" value="yes"><span>Yes!</span></label>
+              <label class="choice" id="noChoice"><input type="radio" name="ask" value="no"><span>No...</span></label>
+            </fieldset>
+
+            <p class="playful" id="kissMsg" hidden></p>
+
+            <div class="confirm-box" id="dateConfirm" hidden>
+              <p class="confirm-text" id="dateConfirmText"></p>
+              <button class="btn btn-primary" type="button" id="dateContinue">Continue 💗</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PAGE 4 · LOCATION ============ -->
+    <section class="page" data-page="4" aria-labelledby="p4title">
+      <div class="card wide">
+        <p class="eyebrow">step two</p>
+        <h2 class="script" id="p4title">Guess where we're going? 📍</h2>
+
+        <div class="map-card" id="mapCard">
+          <svg class="map-bg" viewBox="0 0 400 140" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 100 Q 80 60 160 90 T 400 70" stroke="#ffd0de" stroke-width="18" fill="none" stroke-linecap="round"/>
+            <path d="M40 0 Q 60 70 30 140" stroke="#fde3ec" stroke-width="10" fill="none"/>
+            <path d="M300 0 Q 280 80 330 140" stroke="#fde3ec" stroke-width="10" fill="none"/>
+            <path id="routePath" class="route" d="M50 110 C 120 30, 250 130, 345 45" stroke="#e85a8a" stroke-width="3.5" fill="none" stroke-dasharray="2 9" stroke-linecap="round"/>
+          </svg>
+          <div class="map-pin from"><span>🏡</span><small><span data-hometown></span></small></div>
+          <div class="map-pin to"><span class="pin-drop">📍</span><small class="to-label">???</small></div>
+        </div>
+
+        <div class="photo-stage" id="photoStage">
+          <div class="pointer" aria-hidden="true">👇</div>
+          <button class="photo-frame" id="photoFrame" type="button" aria-label="Tap to reveal the place">
+            <img id="placePhoto" alt="SM City Angono" decoding="async">
+            <svg class="place-fallback" id="placeFallback" viewBox="0 0 400 250" aria-hidden="true" hidden>
+              <defs>
+                <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd9e6"/><stop offset="1" stop-color="#fff4f8"/></linearGradient>
+              </defs>
+              <rect width="400" height="250" fill="url(#sky)"/>
+              <circle cx="330" cy="55" r="26" fill="#fff" opacity=".8"/>
+              <g fill="#fff" opacity=".9"><ellipse cx="80" cy="50" rx="34" ry="12"/><ellipse cx="105" cy="44" rx="22" ry="12"/></g>
+              <rect x="40" y="110" width="320" height="110" rx="10" fill="#ffffff" stroke="#ffb3cb" stroke-width="3"/>
+              <rect x="150" y="80" width="100" height="50" rx="8" fill="#ff8fb3"/>
+              <text x="200" y="112" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="18" fill="#fff">SM City</text>
+              <g fill="#ffe1eb">
+                <rect x="60" y="140" width="50" height="34" rx="4"/><rect x="125" y="140" width="50" height="34" rx="4"/>
+                <rect x="225" y="140" width="50" height="34" rx="4"/><rect x="290" y="140" width="50" height="34" rx="4"/>
+              </g>
+              <rect x="180" y="160" width="40" height="60" rx="4" fill="#ffc2d6"/>
+              <rect x="0" y="220" width="400" height="30" fill="#ffe8f0"/>
+              <text x="200" y="242" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="600" font-size="13" fill="#b83b6b">Angono, Rizal</text>
+            </svg>
+            <div class="mystery" id="mystery"><span>?</span><small>tap to reveal ✨</small></div>
+          </button>
+          <p class="photo-note" id="photoNote" hidden>Psst — drop a real photo at <code>assets/sm-angono.jpg</code> to show it here.</p>
+        </div>
+
+        <div class="reveal-text" id="revealText" hidden>
+          <p class="script reveal-big"><span data-loc-short></span>!</p>
+          <p class="lead">This is where our little date adventure begins! 💗</p>
+          <p class="muted">Chosen specially for us, sweet treats, a movie, and good food, all in one place.</p>
+          <button class="btn btn-primary btn-big" type="button" data-go="5">I Agree!</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PAGE 5 · ITINERARY ============ -->
+    <section class="page" data-page="5" aria-labelledby="p5title">
+      <div class="card wide">
+        <p class="eyebrow">step three</p>
+        <h2 class="script" id="p5title">Our Date Itinerary</h2>
+        <div class="plan-chip" id="planChip"></div>
+        <ol class="timeline" id="timelineOriginal"></ol>
+        <p class="fine">Times, showtimes and travel durations are our proposed plan, so we'll double-check them on the day. 💕</p>
+        <button class="btn btn-primary btn-big" type="button" data-go="6">Let's Review Our Plans! 💗</button>
+      </div>
+    </section>
+
+    <!-- ============ PAGE 6 · FEEDBACK ============ -->
+    <section class="page" data-page="6" aria-labelledby="p6title">
+      <!-- 6a: form -->
+      <div class="card wide sub" id="fbForm" data-sub="form">
+        <p class="eyebrow">step four</p>
+        <h2 class="script" id="p6title">Your Turn 💌</h2>
+        <p class="lead center">Now that you've seen our little date plan, what do you think? Is there anything you'd like to add, remove, or change? I want this date to be something we'll both enjoy! 💗</p>
+
+        <form id="feedbackForm" novalidate>
+          <div class="field">
+            <label for="fbAdd"><span class="field-badge">A</span> What would you like to add?</label>
+            <p class="hint">Activities, places, food, anything! One per line or separated by commas. You can say when, e.g. “ice cream after the movie”.</p>
+            <textarea id="fbAdd" rows="2" placeholder="e.g. photobooth after lunch, ice cream"></textarea>
+          </div>
+          <div class="field">
+            <label for="fbRemove"><span class="field-badge">B</span> What would you like to remove?</label>
+            <p class="hint">Leave it blank if you're happy with everything.</p>
+            <textarea id="fbRemove" rows="2" placeholder="e.g. milk tea"></textarea>
+          </div>
+          <div class="field">
+            <label for="fbOther"><span class="field-badge">C</span> Other suggestions</label>
+            <p class="hint">Optional. Schedule changes, a different movie, meet-up time, or anything on your mind.</p>
+            <textarea id="fbOther" rows="2" placeholder="e.g. let's meet at 10am, I want to hold hands the whole time hehe"></textarea>
+          </div>
+          <button class="btn btn-primary btn-big" type="submit">Finalize Our Date! 💗</button>
+        </form>
+      </div>
+
+      <!-- 6b: review / clarification -->
+      <div class="card wide sub" id="fbReview" data-sub="review" hidden>
+        <p class="eyebrow">just making sure</p>
+        <h2 class="script">Did I get this right? 💭</h2>
+        <p class="muted center">Here's how I understood each of your suggestions. Fix anything I got wrong. Nothing you wrote gets left out.</p>
+        <div class="review-list" id="reviewList"></div>
+        <div class="schedule-check" id="scheduleCheck" aria-live="polite"></div>
+        <div class="btn-row">
+          <button class="btn btn-ghost" type="button" id="reviewBack">‹ Edit my answers</button>
+          <button class="btn btn-primary" type="button" id="reviewBuild">Build Our New Plan 💗</button>
+        </div>
+        <p class="block-reason" id="blockReason" hidden></p>
+      </div>
+
+      <!-- 6c: revised itinerary -->
+      <div class="card wide sub" id="fbRevised" data-sub="revised" hidden>
+        <p class="eyebrow">our updated plan</p>
+        <h2 class="script">Here's our updated date plan!</h2>
+        <p class="lead center">I included your suggestions so we can make this day even more special. What do you think? 💗</p>
+        <p class="muted center" id="noChangeNote" hidden>(You said it's perfect as it is, so it stays just the way it was! 🥹)</p>
+        <div class="plan-chip" id="planChipRevised"></div>
+        <ol class="timeline" id="timelineRevised"></ol>
+        <div class="extras" id="revisedExtras"></div>
+        <div class="btn-row stack-mobile">
+          <button class="btn btn-primary" type="button" id="approvePlan">Everything Looks Good! ❤️</button>
+          <button class="btn btn-ghost" type="button" id="changeMore">I Still Want to Change Something</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PAGE 7 · INVITATION ============ -->
+    <section class="page" data-page="7" aria-labelledby="p7title">
+      <div class="card wide">
+        <p class="eyebrow">ta-da!</p>
+        <h2 class="script" id="p7title">Your Invitation is Ready 💌</h2>
+        <p class="muted center">Made with love, with every one of your ideas in it.</p>
+        <div class="invite-preview" id="invitePreview">
+          <div class="loader" id="inviteLoader"><span class="beat">💗</span><p>Wrapping your invitation with ribbons…</p></div>
+          <img id="inviteThumb" alt="Our date invitation" hidden>
+        </div>
+        <p class="error-msg" id="inviteError" hidden></p>
+        <div class="btn-row stack-mobile">
+          <button class="btn btn-primary" type="button" id="downloadInvite" disabled>Download Our Invitation 💗</button>
+          <button class="btn btn-ghost" type="button" id="viewInvite" disabled>View Invitation</button>
+        </div>
+        <p class="fine" id="saveHint">If the download doesn't start (some in-app browsers block it), tap “View Invitation” and long-press the image to save it.</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="viewer" id="viewer" hidden role="dialog" aria-modal="true" aria-label="Invitation">
+    <button class="viewer-close" id="viewerClose" type="button" aria-label="Close">✕</button>
+    <div class="viewer-scroll"><img id="viewerImg" alt="Our date invitation"></div>
+  </div>
+
+  <div class="burst-layer" id="burstLayer" aria-hidden="true"></div>
+
+  <div class="rotate-msg" role="status">
+    <div class="rotate-phone" aria-hidden="true"><span>💗</span></div>
+    <p class="script">Turn me around, please!</p>
+    <p>This little invitation is best held upright. 📱💕</p>
+  </div>
+
+  <script src="invitation.js?v=3"></script>
+  <script src="app.js?v=7"></script>
+</body>
+</html>
